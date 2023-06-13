@@ -1,5 +1,4 @@
-
-    <h1>Algoritmo de Luhn</h1>
+	<h1>Algoritmo de Luhn</h1>
     <p>Este programa implementa el algoritmo de Luhn, también conocido como el algoritmo de verificación de número de tarjeta de crédito. El algoritmo de Luhn se utiliza para validar números de tarjetas de crédito y débito.</p>
 
     <h2>Descripción del código</h2>
