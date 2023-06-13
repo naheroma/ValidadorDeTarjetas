@@ -1,42 +1,44 @@
 #Algoritmo de lhun
+class Tarjeta:
+    def __init__(self, numero):
+        self.numero = numero
 
-from asyncio.windows_events import NULL
-import math
-tarjeta = "5547300303986866"
-par = ""
-InvertidoMultiplicado = ""
-valorAValidar = 0
+    def ValidarTarjeta(self):
+        tarjetaInvertida = ""
+        # Se invierte el string tarjeta
+        for x in self.numero:
+            tarjetaInvertida = x + tarjetaInvertida
 
-
-tarjetaInvertida = ""
-#Se invierte el string tarjeta
-for x in tarjeta:
-    tarjetaInvertida = x + tarjetaInvertida
-
-#Multiplicar x2 salteando una vez por iteracion un elemento del string
-for i in range(0, len(tarjetaInvertida),2):
-    par = tarjetaInvertida[i:i+2]
-    try:
-        numeroMultiplicado = int(par[1]) * 2
-    except IndexError:
-        numeroMultiplicado = 0
+        InvertidoMultiplicado = ""
+        #Multiplicar x2 salteando una vez por iteracion un elemento del string
+        for i in range(0, len(tarjetaInvertida), 2):
+            par = tarjetaInvertida[i:i+2]
+            try:
+                numeroMultiplicado = int(par[1]) * 2
+            except IndexError:
+                numeroMultiplicado = 0
         
-    #str numeroMultiplicado convierte en una cadena de texto
-    #int digito convierte cada valor de esta cadena en un entero
-    if numeroMultiplicado > 9:     
-       numeroMultiplicado = sum(int(digito) for digito in str(numeroMultiplicado))    
-    InvertidoMultiplicado += str(par[0]) + str(numeroMultiplicado)
+        # str numeroMultiplicado convierte en una cadena de texto
+        # int digito convierte cada valor de esta cadena en un entero
+        if numeroMultiplicado > 9:
+            numeroMultiplicado = sum(int(digito) for digito in str(numeroMultiplicado))
 
-#Sumar todos los digitos
-for x in InvertidoMultiplicado:
-    valorAValidar += int(x)
-#Si el resto del valor obtenido es 0, la tarjeta es valida.
-if valorAValidar % 10 == 0:
-    print("Valida.")
-else:
-    print("No valida.")
+        InvertidoMultiplicado += str(par[0]) + str(numeroMultiplicado)
 
+        valorAValidar = 0
+        for x in InvertidoMultiplicado:
+            valorAValidar += int(x)
+
+        if valorAValidar % 10 == 0:
+            return "Tarjeta valida."
+        else:
+            return "Tarjeta no valida."
     
+
+# Ejemplo de uso
+tarjeta = Tarjeta("") #Ingresar nro de tarjeta
+resultado = tarjeta.ValidarTarjeta()
+print(resultado)
 
 
 
