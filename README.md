@@ -17,3 +17,6 @@
    <p>El algoritmo de Luhn es un método sencillo para validar números de tarjeta de crédito o débito. Se basa en la suma de los dígitos y verifica si el resultado es divisible por 10. Si lo es, se considera que el número de tarjeta es válido.</p>
 
 
+   ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+
